@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.16.0', require: false
 gem 'devise'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"
+# HTTP client library abstraction layer: https://github.com/lostisland/faraday
+gem 'faraday'
+# Library for building HTTP user-agents: https://github.com/ruby/net-http
+gem 'net-http'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
