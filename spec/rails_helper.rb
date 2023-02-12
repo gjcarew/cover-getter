@@ -1,5 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'webmock/rspec'
+require 'support/stubber'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -31,6 +34,9 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.formatter = :documentation
+  config.include(Stubber)
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -61,4 +67,29 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each) do |t|
+    # Default to stubbing AI requests to reduce expenses & test duration
+    if !t.metadata[:unstubbed]
+      if t.metadata[:stub_ai_failure]
+        body = stub_open_ai_completions_text(success: false)
+
+        stub_request(:post, /api\.openai\.com\/[a-z0-9]{2}\/completions/)
+          .to_return(
+            status: 400,
+            body: body,
+            headers: { "content-type": "application/json"}
+          )
+      else
+        body = stub_open_ai_completions_text()
+
+        stub_request(:post, /api\.openai\.com\/[a-z0-9]{2}\/completions/)
+          .to_return(
+            status: 200,
+            body: body,
+            headers: { "content-type": "application/json"}
+          )
+      end
+    end
+  end
 end

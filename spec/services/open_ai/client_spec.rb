@@ -8,7 +8,7 @@ RSpec.describe OpenAI::Client do
     after { WebMock.disallow_net_connect! }
 
     context "success" do
-      it "returns text" do
+      it "returns text", :unstubbed do
         body = {
           "model": "text-davinci-003",
           "temperature": 0.6,
@@ -30,7 +30,7 @@ RSpec.describe OpenAI::Client do
     end
 
     context "failure" do
-      it "errors for missing attributes" do
+      it "returns an error message", :unstubbed do
         body = {
           "temperature": 0.6,
           "top_p": 1.0,

@@ -50,6 +50,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  # Library for stubbing HTTP requests
+  gem 'webmock'
 end
 
 group :development do
