@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'There is a link to visit create a new cover letter' do 
+    visit home_path
+  end
 end
