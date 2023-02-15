@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2023_02_15_161928) do
 
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "role"
-    t.string "company"
+    t.string "role", null: false
+    t.string "company", null: false
     t.string "description"
     t.string "letter_text"
     t.index ["user_id"], name: "index_jobs_on_user_id"
