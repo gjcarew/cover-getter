@@ -15,6 +15,10 @@ RSpec.describe "New cover letter", type: :view do
   end
 
   describe 'Happy path' do
+    # before { WebMock.allow_net_connect! }
+    # after { WebMock.disallow_net_connect! }
+
+    # to run this test unstubbed, uncomment lines 18 & 19 and add :unstubbed to the test
     it 'There is a form to generate a new cover letter', do
       visit new_job_path
       fill_in :role, with: 'Software engineer'
