@@ -1,0 +1,7 @@
+<%= form_with model: @profile do |f| %>
+  <%= render "paragraph_input", {f: f, attribute: :skills, placeholder: ""} %>
+  <%= render "paragraph_input", {f: f, attribute: :experience, placeholder: ""} %>
+  <%= render "paragraph_input", {f: f, attribute: :education, placeholder: "" } %>
+  <%= render "paragraph_input", {f: f, attribute: :projects, placeholder: "" } %>
+  <%= f.submit "Submit" %>
+<% end %>

@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :views
   root to: "home#index"
 
-  resources :profiles, only: [:new]
+  resources :profiles, only: [:new, :create]
 end
