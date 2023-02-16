@@ -39,8 +39,7 @@ gem 'bootsnap', '>= 1.16.0', require: false
 gem 'devise'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"
-# Fixes the non-working csrf protection in the linkedin oauth gem
-gem 'omniauth-rails_csrf_protection'
+gem "omniauth-rails_csrf_protection"
 # HTTP client library abstraction layer: https://github.com/lostisland/faraday
 gem 'faraday'
 # Library for building HTTP user-agents: https://github.com/ruby/net-http
@@ -54,8 +53,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   # Library for stubbing HTTP requests
   gem 'webmock'
-  # For testing views
-  gem 'capybara'
   # Debug with save and open page (no longer included in capybara)
   gem 'launchy'
 end
@@ -64,6 +61,14 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+end
+
+group :test do
+  # Database cleaning around tests
+  gem 'database_cleaner'
+  # Integration test tools
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

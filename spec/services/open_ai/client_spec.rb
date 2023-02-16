@@ -4,8 +4,6 @@ require "rails_helper"
 RSpec.describe OpenAI::Client do
   describe "post" do
     subject(:client) { OpenAI::Client.new() }
-    before { WebMock.allow_net_connect! }
-    after { WebMock.disallow_net_connect! }
 
     context "success" do
       it "returns text", :unstubbed do

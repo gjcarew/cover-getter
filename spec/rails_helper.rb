@@ -33,6 +33,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   config.formatter = :documentation
   config.include(Stubber)
@@ -68,6 +69,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # Allow unmocked calls
+  WebMock.allow_net_connect!
+
   config.before(:each) do |t|
     # Default to stubbing AI requests to reduce expenses & test duration
     if !t.metadata[:unstubbed]
@@ -90,6 +94,19 @@ RSpec.configure do |config|
             headers: { "content-type": "application/json"}
           )
       end
+    end
+  end
+
+  # Start by removing all the data from the database via truncation
+  # Then use faster transaction strategy to rollback any changes for remaining time
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :transaction
+  end
+  # Run transaction strategy to clean database around each test
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
     end
   end
 end
