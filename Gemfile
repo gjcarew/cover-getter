@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.16.0', require: false
 gem 'devise'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"
+# Fixes the non-working csrf protection in the linkedin oauth gem
 gem 'omniauth-rails_csrf_protection'
 # HTTP client library abstraction layer: https://github.com/lostisland/faraday
 gem 'faraday'
@@ -53,6 +54,10 @@ group :development, :test do
   gem 'shoulda-matchers'
   # Library for stubbing HTTP requests
   gem 'webmock'
+  # For testing views
+  gem 'capybara'
+  # Debug with save and open page (no longer included in capybara)
+  gem 'launchy'
 end
 
 group :development do
