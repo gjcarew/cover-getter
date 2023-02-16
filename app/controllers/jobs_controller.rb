@@ -16,7 +16,6 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    require 'pry';binding.pry
   end
 
   private
