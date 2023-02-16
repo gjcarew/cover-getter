@@ -3,9 +3,15 @@ require 'rails_helper'
 RSpec.describe "New cover letter", type: :view do
 
   before :each do 
-    user = double('user')
+    user = User.create!(email: 'example@user.com', password: 'ValidPW')
+    Profile.create!(user_id: user.id, 
+                    skills: 'Ruby',
+                    experience: 'I worked at Amazon as a software engineer',
+                    education: 'Turing School of Software and Design',
+                    projects: 'Cover Getter, a rails project using ChatGPT')
     allow_any_instance_of(HomeController).to receive(:require_profile).and_return(true)
     allow_any_instance_of(ApplicationController).to receive(:authenticate_user!).and_return(user)
+    allow_any_instance_of(JobsController).to receive(:current_user).and_return(user)
   end
 
   describe 'Happy path' do
