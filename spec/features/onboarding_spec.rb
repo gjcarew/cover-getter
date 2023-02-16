@@ -28,6 +28,8 @@ RSpec.describe "Onboarding", type: :feature do
       click_on "Sign up"
 
       expect(page).to have_current_path(new_profile_path)
+      expect(page).to have_content("New Profile")
+      expect(page).to_not have_link(edit_profile_path) # Nav link that displays after profile creation
 
       fill_in "Skills", with: input.skills
       fill_in "Experience", with: input.experience
@@ -57,6 +59,29 @@ RSpec.describe "Onboarding", type: :feature do
 
       expect(page).to have_content("Home")
     end
+
+    it "can sign out without completing onboarding" do
+      visit root_path
+
+      expect(page).to have_current_path(new_user_session_path)
+
+      click_on "Sign up"
+
+      expect(page).to have_current_path(new_user_registration_path)
+
+      fill_in "Email", with: input.email
+      fill_in "Password", with: input.password
+      fill_in "Password confirmation", with: input.password
+      click_on "Sign up"
+
+      expect(page).to have_current_path(new_profile_path)
+      expect(page).to have_content("New Profile")
+      expect(page).to_not have_link(edit_profile_path) # Nav link that displays after profile creation
+
+      click_on "Log Out"
+
+      expect(page).to have_content("Log in")
+    end
   end
 
   context "returning new user" do
@@ -69,9 +94,11 @@ RSpec.describe "Onboarding", type: :feature do
         Profile.create(user_id: user.id, skills: input.skills, experience: input.experience, education: input.education, projects: input.projects)
       end
 
-      visit root_path
+      visit home_index_path
 
+      expect(page).to have_current_path(home_index_path)
       expect(page).to have_content("Home")
+      expect(page).to have_content("Edit Profile")
     end
 
     it "is directed to continue onboarding if profile is missing" do

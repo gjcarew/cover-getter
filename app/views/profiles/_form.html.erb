@@ -1,4 +1,4 @@
-<%= form_with model: @profile do |f| %>
+<%= form_for @profile, url: profile_path do |f| %>
   <%= render "paragraph_input", {f: f, attribute: :skills, placeholder: ""} %>
   <%= render "paragraph_input", {f: f, attribute: :experience, placeholder: ""} %>
   <%= render "paragraph_input", {f: f, attribute: :education, placeholder: "" } %>

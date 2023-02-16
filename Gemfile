@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.16.0', require: false
 gem 'devise'
 gem "omniauth"
 gem "omniauth-linkedin-oauth2"
+gem "omniauth-rails_csrf_protection"
 # HTTP client library abstraction layer: https://github.com/lostisland/faraday
 gem 'faraday'
 # Library for building HTTP user-agents: https://github.com/ruby/net-http
