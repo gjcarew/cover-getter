@@ -2,8 +2,8 @@ class JobsController < ApplicationController
   def new; end
 
   def create
-    require 'pry';binding.pry
     job = Job.new(job_params)
+    job.user_id = current_user.id
 
     if job.valid?
       add_letter_to(job)
@@ -16,6 +16,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    require 'pry';binding.pry
   end
 
   private
@@ -27,7 +28,7 @@ class JobsController < ApplicationController
   def add_letter_to(job)
     prompt = PromptBuilder.new(job, current_user.profile)
     letter_text = OpenAI::TextService.new.cover_letter(prompt.text)
-    job.letter_text = letter_text
+    job.letter_text = letter_text.content
     job.save
   end
 end

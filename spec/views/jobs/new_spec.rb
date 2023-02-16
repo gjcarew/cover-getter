@@ -15,13 +15,13 @@ RSpec.describe "New cover letter", type: :view do
   end
 
   describe 'Happy path' do
-    it 'There is a form to generate a new cover letter' do
+    it 'There is a form to generate a new cover letter', do
       visit new_job_path
       fill_in :role, with: 'Software engineer'
       fill_in :company, with: 'Google'
       fill_in :description, with: 'Make a search engine'
       click_on 'Generate'
-      expect(page).to have_content('Dear Hiring Manager')
+      expect(page).to have_content('Software engineer at Google')
     end
   end
 end
