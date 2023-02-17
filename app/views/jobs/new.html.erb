@@ -1,2 +1,7 @@
-<h1> Enter the job posting information </h1>
-<%= render "job_form" %>
+<h1> New Cover Letter </h1>
+<%= form_with model: @job do |f| %>
+  <%= render "shared/text_field_input", f: f, attribute: :role, placeholder: '' %>
+  <%= render "shared/text_field_input", f: f, attribute: :company, placeholder: '' %>
+  <%= render "shared/paragraph_input", {f: f, attribute: :description, placeholder: ""} %>
+  <%= f.submit "Generate" %>
+<% end %>

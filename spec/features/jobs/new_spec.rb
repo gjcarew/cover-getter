@@ -11,8 +11,6 @@ RSpec.describe "New cover letter", type: :feature do
                     projects: 'Cover Getter, a rails project using ChatGPT')
     login_as(user)
     allow_any_instance_of(HomeController).to receive(:require_profile).and_return(true)
-    # allow_any_instance_of(ApplicationController).to receive(:authenticate_user!).and_return(user)
-    # allow_any_instance_of(JobsController).to receive(:current_user).and_return(user)
   end
 
   describe 'Happy path' do

@@ -1,9 +1,0 @@
-<%= form_with model: @job do |f| %>
-  <%= f.label :role, "Job title" %>
-  <%= f.text_field :role %>
-  <%= f.label :company, "Company name" %>
-  <%= f.text_field :company %>
-  <%= render "shared/paragraph_input", {f: f, attribute: :description, placeholder: ""} %>
-  <%= f.submit "Generate" %>
-  <%= f.submit "Save" %>
-<% end %>
