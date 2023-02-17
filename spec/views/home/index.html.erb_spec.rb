@@ -50,4 +50,12 @@ RSpec.describe "home/index.html.erb", type: :view do
     expect(page).to have_content(job2.role)
     expect(page).to have_content(job2.company)
   end
+
+  it 'Each job is a link to its show page' do 
+    job1
+
+    visit root_path
+    click_on "#{job1.role} at #{job1.company}"
+    expect(current_path).to eq(job_path(job1))
+  end
 end
