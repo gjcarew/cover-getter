@@ -1,10 +1,9 @@
-.navbar {
+nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
 }
 
 .menu-btn { display: none; }
@@ -22,7 +21,7 @@
   position: relative;
 }
 
-.navbar .menu {
+nav .menu {
   display: flex;
   justify-content: end;
   list-style: none;
@@ -45,7 +44,7 @@
   .menu-icon {
     display: none;
   }
-  .navbar .menu {
+  nav .menu {
     width: auto;
 
     li {
@@ -106,4 +105,65 @@
   .menu-btn:checked ~ .menu-icon .navicon::after {
     top: 0;
   }
+}
+
+.animated-typing-container {
+  padding: 1rem;
+  width: auto;
+  margin: auto;
+}
+
+.animated-typing-container h3 {
+  color: var(--off-white);
+  width: 272px;
+  border-right: 4px solid transparent;
+  margin: 0.5rem auto;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(13, end), blink-caret 0.67s step-end 8 alternate;
+  caret-color: transparent;
+  font-weight: 200;
+  font-size: 36px;
+}
+
+.highlight {
+  font-weight: 800;
+  color: var(--off-white);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: var(--purple)}
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+.logo-icon {
+  filter: invert(76%) sepia(30%) saturate(2245%) hue-rotate(75deg) brightness(105%) contrast(104%);
+}
+
+.logo-border {
+  border-radius: 5px;
+  height: 52px;
+  width: 52px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  background:
+    linear-gradient(to right, rgba(17, 21, 39, 100), rgba(17, 21, 39, 100)),
+    linear-gradient(90deg, var(--purple) 0%, var(--teal) 51%, var(--aqua) 100%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  float: left;
 }

@@ -1,0 +1,62 @@
+
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  line-height: 1;
+  font-size: 14px;
+  margin: 30px;
+}
+
+// Style custom remember me checkbox
+// Hide browser default
+input[id=user_remember_me] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+// Create custom checkbox
+label[for=user_remember_me] {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+label[for=user_remember_me]:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 0;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: rgb(92, 2, 188); // checkbox color when unchecked
+  border-radius: 3px;
+}
+
+label[for=user_remember_me]:hover:before {
+  background-color: var(--purple);
+}
+
+// Style the checkmark
+label[for=user_remember_me]:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  opacity: 0; // Hide when unchecked
+}
+
+// Show checkmark when checked
+input[id=user_remember_me]:checked+label:after {
+  opacity: 1;
+}

@@ -1,6 +1,13 @@
-<nav class="navbar">
+<nav>
   <%= link_to "/" do %>
-    COVER<strong>GETTER</strong>
+    <div class="logo-container">
+      <div class="logo-border">
+        <%= image_tag "robot-hand.png", style: "height:50px", class: "logo-icon" %>
+      </div>
+      <div class="animated-typing-container">
+        <h3 class="typing"><i>COVER<bold class="highlight">GETTER</i></bold></h3>
+      </div>
+    </div>
   <% end %>
 
   <input class="menu-btn" type="checkbox" id="menu-btn">
@@ -9,12 +16,6 @@
   </label>
 
   <ul class="menu">
-    <li>
-      <a href="/" class="font-bold">Home</a>
-    </li>
-    <li>
-      <a href="/about/">About</a>
-    </li>
     <% if user_signed_in? %>
       <% if current_user.profile.present? %>
         <li>
@@ -23,10 +24,6 @@
       <% end %>
       <li>
         <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Log In", new_user_session_path %>
       </li>
     <% end %>
   </ul>
