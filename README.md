@@ -1,4 +1,4 @@
-<div align="center"><img src="placeholder" style="width: 150px;"> 
+<div align="center"><img src="app/assets/images/robot-hand.png" style="width: 150px;"> 
 
 # **Cover Getter**
 
