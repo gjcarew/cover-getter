@@ -2,8 +2,12 @@
   font-family: "Poppins", sans-serif;
   --purple: rgb(122, 0, 255);
   --teal: rgb(9, 121, 115);
-  --aqua: rgb(0, 212, 255);
+  --aqua: #00FCFF;
   --off-white: rgb(226, 235, 251);
+}
+
+html {
+  background-color: #111527;
 }
 
 body {
@@ -13,7 +17,6 @@ body {
   line-height: 1.5;
   font-size: 16px;
   font-weight: 700;
-  background-color: #111527;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,6 +26,7 @@ body {
 main {
   flex-grow: 2;
   align-items: center;
+  margin: 0 4rem;
 }
 
 a {
@@ -39,7 +43,8 @@ ol, ul {
 footer {
   font-size: 10px;
   font-weight: normal;
-  margin: 10px;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .hidden {
