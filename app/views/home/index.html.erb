@@ -1,5 +1,16 @@
-<%= button_to 'Create a new cover letter', new_job_path, method: :get %>
+<div id="home">
+  <%= button_to 'Create a new cover letter', new_job_path, method: :get %>
 
-<% @jobs.each do |job| %>
-    <p><%= link_to "#{job.role} at #{job.company}", job_path(job) %></p>
-<% end %>
+  <div class="jobs">
+    <% @jobs.each do |job| %>
+      <%= link_to job_path(job), class: "job" do %>
+        <bold>
+          <%= job.role %>
+          <br/>at<br/>
+          <i><%= job.company %></i>
+        </bold>
+        <p class="job-description"><%= job.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
