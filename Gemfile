@@ -53,6 +53,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   # Library for stubbing HTTP requests
   gem 'webmock'
+  # Debug with save and open page (no longer included in capybara)
+  gem 'launchy'
 end
 
 group :development do

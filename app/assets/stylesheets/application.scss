@@ -7,3 +7,32 @@
 @import "pages/index";
 @import "general-style";
 @import "fonts";
+
+#home form {
+  margin: 4rem 0;
+}
+
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(3, [col-start] 1fr);
+  gap: 6rem;
+}
+
+.job {
+  background-color: var(--off-white);
+  color: #111527;
+  padding: 1rem;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.job-description {
+  font-size: 8px;
+}
+
+.cover-letter {
+  white-space: pre-wrap;
+}

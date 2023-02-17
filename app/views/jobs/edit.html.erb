@@ -1,0 +1,12 @@
+<%= form_for @job do |f| %>
+  <%= render "shared/text_field_input", {f: f, attribute: :role, placeholder: @job.role} %>
+  <%= render "shared/text_field_input", {f: f, attribute: :company, placeholder: @job.company} %>
+  <%= render "shared/paragraph_input", {f: f, attribute: :description, placeholder: @job.description} %>
+  <%= f.submit "Re-generate" %>
+<% end %>
+
+<%= form_for @job do |f| %>
+  <%= f.label :letter_text, "Cover letter" %>
+  <%= f.text_area :letter_text, placeholder: @job.letter_text %>
+  <%= f.submit "Save" %>
+<% end %>

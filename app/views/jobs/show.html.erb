@@ -1,0 +1,5 @@
+<h1> Your cover letter <h1>
+<h3> <%= @job.role %> at <%= @job.company %>
+<p class="cover-letter"><%= @job.letter_text %></p>
+<%= button_to 'Edit', edit_job_path(@job), method: :get %>
+<%= button_to 'Delete', job_path(@job), method: :delete %>

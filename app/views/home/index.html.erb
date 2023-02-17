@@ -1,2 +1,16 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div id="home">
+  <%= button_to 'Create a new cover letter', new_job_path, method: :get %>
+
+  <div class="jobs">
+    <% @jobs.each do |job| %>
+      <%= link_to job_path(job), class: "job" do %>
+        <bold>
+          <%= job.role %>
+          <br/>at<br/>
+          <i><%= job.company %></i>
+        </bold>
+        <p class="job-description"><%= job.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+input {
+  outline: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--off-white);
+  width: 300px;
+  padding: 10px 12px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid #23304D;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--off-white) !important;
+}
+
+input:focus {
+  border-bottom: 2px solid var(--purple);
+}
+
+input[type=submit] {
+  border: 2px solid transparent;
+  border-radius: 50px;
+  background:
+    linear-gradient(to right, rgba(17, 21, 39, 100), rgba(17, 21, 39, 100)),
+    linear-gradient(90deg, var(--purple) 0%, var(--teal) 51%, var(--aqua) 100%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #23304D;
+  outline: 0;
+  border-radius: 5px;
+  height: auto;
+  width: 75vw;
+  max-width: 850px;
+  color: var(--off-white);
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+}
+
+textarea:focus {
+  border: 2px solid var(--purple);
+}
+
+.field {
+  margin: 20px 0px;
+}
+
+.paragraph-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+label {
+  margin: 5px auto;
+  padding: 5px;
+}

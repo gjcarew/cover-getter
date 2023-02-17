@@ -1,9 +1,32 @@
 * {
-  font-family: 'Lato';
+  font-family: "Poppins", sans-serif;
+  --purple: rgb(122, 0, 255);
+  --teal: rgb(9, 121, 115);
+  --aqua: #00FCFF;
+  --off-white: rgb(226, 235, 251);
+}
+
+html {
+  background-color: #111527;
 }
 
 body {
+  text-align: center;
   margin: 0;
+  color: var(--off-white);
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+main {
+  flex-grow: 2;
+  align-items: center;
+  margin: 0 4rem;
 }
 
 a {
@@ -17,8 +40,11 @@ ol, ul {
   padding: 0;
 }
 
-.font-bold {
-  font-weight: 700;
+footer {
+  font-size: 10px;
+  font-weight: normal;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .hidden {

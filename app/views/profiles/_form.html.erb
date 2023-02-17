@@ -1,7 +1,9 @@
 <%= form_for @profile, url: profile_path do |f| %>
-  <%= render "paragraph_input", {f: f, attribute: :skills, placeholder: ""} %>
-  <%= render "paragraph_input", {f: f, attribute: :experience, placeholder: ""} %>
-  <%= render "paragraph_input", {f: f, attribute: :education, placeholder: "" } %>
-  <%= render "paragraph_input", {f: f, attribute: :projects, placeholder: "" } %>
+  <div class="paragraph-input-container">
+    <%= render "shared/paragraph_input", {f: f, attribute: :skills, placeholder: ""} %>
+    <%= render "shared/paragraph_input", {f: f, attribute: :experience, placeholder: ""} %>
+    <%= render "shared/paragraph_input", {f: f, attribute: :education, placeholder: "" } %>
+    <%= render "shared/paragraph_input", {f: f, attribute: :projects, placeholder: "" } %>
+  </div>
   <%= f.submit "Submit" %>
 <% end %>
