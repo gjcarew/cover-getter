@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[linkedin]
   has_one :profile
+  has_many :jobs
 
 
   def self.new_with_session(params, session)
