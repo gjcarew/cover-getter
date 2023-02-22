@@ -7,7 +7,7 @@ class PromptBuilder
   end
 
   def text
-    "Write me a cover letter. \n" +
+    "Write me a cover letter in 500 words or fewer. \n" +
       "The company is #{@job.company}. \n" +
       "The job title is #{@job.role}. \n" +
       description + 
