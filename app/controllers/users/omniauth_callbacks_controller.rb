@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in @user, event: :authentication
 
       if @user.profile
-        redirect_to home_path
+        redirect_to home_index_path
       else
         redirect_to new_profile_path
       end
