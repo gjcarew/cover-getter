@@ -6,7 +6,6 @@
 <% end %>
 
 <%= form_for @job do |f| %>
-  <%= f.label :letter_text, "Cover letter" %>
-  <%= f.text_area :letter_text, placeholder: @job.letter_text %>
+  <%= render "shared/paragraph_input", {f: f, attribute: :letter_text, placeholder: @job.letter_text} %>
   <%= f.submit "Save" %>
 <% end %>

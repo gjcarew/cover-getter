@@ -25,7 +25,7 @@ module OpenAI
         "model": "text-davinci-003",
         "temperature": 0.6,
         "top_p": 1.0,
-        "max_tokens": 256,
+        "max_tokens": 700,
         "frequency_penalty": 0.0,
         "presence_penalty": 0.0
       }
