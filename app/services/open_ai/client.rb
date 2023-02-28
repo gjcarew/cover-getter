@@ -22,7 +22,7 @@ module OpenAI
 
     def default_headers
       {
-        "Authorization": "Bearer #{ENV.fetch('OPEN_AI_KEY')}",
+        "Authorization": "Bearer #{Rails.application.credentials[:OPEN_AI_KEY]}",
         "Content-Type": "application/json"
       }
     end
