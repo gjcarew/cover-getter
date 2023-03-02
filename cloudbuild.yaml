@@ -16,15 +16,15 @@ steps:
     args:
       [
         "-c",
-        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails db:migrate"
+        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rake db:migrate"
       ]
     secretEnv: ["RAILS_KEY"]
 
 substitutions:
   _REGION: us-central1
-  _SERVICE_NAME: rails-cover-getter
-  _INSTANCE_NAME: cover-getter
-  _SECRET_NAME: rails-master-key
+  _SERVICE_NAME: cover-getter-service
+  _INSTANCE_NAME: cover-getter-pg
+  _SECRET_NAME: cover-getter-secrets
 
 availableSecrets:
   secretManager:
