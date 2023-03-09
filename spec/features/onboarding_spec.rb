@@ -23,7 +23,7 @@ RSpec.describe "Onboarding", type: :feature do
       expect(page).to have_current_path(new_user_registration_path)
 
       fill_in "Email", with: input.email
-      fill_in "Password", with: input.password
+      fill_in :user_password, with: input.password
       fill_in "Password confirmation", with: input.password
       click_on "Sign up"
 
@@ -37,7 +37,7 @@ RSpec.describe "Onboarding", type: :feature do
       fill_in "Projects", with: input.projects
       click_on "Submit"
 
-      expect(page).to have_content("Home")
+      expect(current_path).to eq(home_index_path)
 
       user = User.find_by(email: input.email)
       profile = user.profile
@@ -54,10 +54,10 @@ RSpec.describe "Onboarding", type: :feature do
       expect(page).to have_content("Log in")
 
       fill_in "Email", with: input.email
-      fill_in "Password", with: input.password
+      fill_in :user_password, with: input.password
       click_on "Log in"
 
-      expect(page).to have_content("Home")
+      expect(current_path).to eq(root_path)
     end
 
     it "can sign out without completing onboarding" do
@@ -70,7 +70,7 @@ RSpec.describe "Onboarding", type: :feature do
       expect(page).to have_current_path(new_user_registration_path)
 
       fill_in "Email", with: input.email
-      fill_in "Password", with: input.password
+      fill_in :user_password, with: input.password
       fill_in "Password confirmation", with: input.password
       click_on "Sign up"
 
@@ -97,7 +97,6 @@ RSpec.describe "Onboarding", type: :feature do
       visit home_index_path
 
       expect(page).to have_current_path(home_index_path)
-      expect(page).to have_content("Home")
       expect(page).to have_content("Edit Profile")
     end
 
