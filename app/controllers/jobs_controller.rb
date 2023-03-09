@@ -8,7 +8,7 @@ class JobsController < ApplicationController
     job = Job.new(attributes)
     if job.valid?
       add_letter_to(job)
-      redirect_to job_path(job)
+      redirect_to edit_job_path(job)
     else
       flash.now[:messages] = job.errors.full_messages[0]
       redirect_to new_job_path
