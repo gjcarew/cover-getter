@@ -24,7 +24,7 @@ RSpec.describe "Profile editing", type: :feature do
       fill_in "Experience", with: updated, fill_options: { clear: :backspace }
       click_on "Submit"
 
-      expect(page).to have_content("Home")
+      expect(current_path).to eq(home_index_path)
 
       profile = user.profile.reload
 
